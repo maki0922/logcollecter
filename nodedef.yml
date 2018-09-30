@@ -1,0 +1,40 @@
+general:
+
+  ssh: &general_ssh 
+    user: root
+    pass: root
+    private_key: aaaa.id_rsa
+
+# not must
+log:
+   dbsv: &log_dbsv
+    - wifi
+   websv: &log_websv
+    - system
+
+nodes:
+    azuki-vps:
+      ip: 10.10.10.10
+      ssh:
+        user: root
+        pass: root
+        private_key: aaaa.id_rsa
+      group:
+        - websv
+        - dbsv
+      log:
+        - wifi
+        - system
+    azuki-conoha:
+      ip: 10.10.10.11
+      ssh: *general_ssh
+      group:
+        - dbsv
+      log:
+        - system 
+    maki-vps:
+      ip: 10.10.10.12
+      group:
+        - webdb
+      log: *log_dbsv
+    maki-conoha:

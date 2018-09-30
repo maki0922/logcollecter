@@ -1,0 +1,9 @@
+log_list:
+  wifi:
+    path:
+      -  "/var/log/wifi.log"
+      -  "/var/log/system.log"
+  system:
+    path:
+      - "/var/log/system.log"
+      - "/var/log/system.log"
